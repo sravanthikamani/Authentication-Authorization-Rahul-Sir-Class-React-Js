@@ -55,8 +55,13 @@ class LoginForm extends Component {
   /* 3. calling onSubmitSuccess 
   onSubmitSuccess= () =>{} 
   Now in this function. what we have to write? if login is success it should navigate to home route.How it will navigate ?
-  React router provides some histroy objects which has some methods to controls the navigation in tbhe browser */
-  onSubmitSuccess = () => {}
+  React router provides some histroy objects which has some methods to controls the navigation in tbhe browser.This history object has so many methods.
+  We use push and replace methods from those. Now how we will get the history object ? through  react props we get.Write const {history} = this.props */
+  onSubmitSuccess = () => {
+    const {history} = this.props
+    // history.push("/")  here we are navigating to home route.after navigating to that page, In the browser if we click on the back <- button, it will navigate to previous page. To avoid this. we write the statement replace
+    history.replace('/')
+  }
   /* 2. calling loginSubmitForm 
   Making authentication request to login API */
 
@@ -102,7 +107,7 @@ class LoginForm extends Component {
           className="login-image"
           alt="website login"
         />
-        <form className="form-container" onSubmit={this.loginSubmitForm()}>
+        <form className="form-container" onSubmit={this.loginSubmitForm}>
           (/*1.giving onSubmit here*/)
           <img
             src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
