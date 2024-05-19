@@ -72,7 +72,7 @@ class LoginForm extends Component {
     /* now storing these username and password */
     const userDetails = {username, password}
     /* Now sending request through url. To send request we need url,options */
-    const url = 'http://apis.ccbp.in/login'
+    const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST' /* for sending request we use POST */,
       body: JSON.stringify(
